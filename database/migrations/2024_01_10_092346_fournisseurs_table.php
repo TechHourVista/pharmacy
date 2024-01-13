@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     public function up(): void
-    {
+    { 
+        
         Schema::create('fournisseurs' , function (Blueprint $table){
             $table->id();
             $table->string('name');
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->text('patente');
             $table->string('delege_comercial');
             $table->string('tel_delege_comercial');
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->timestamps(); // The timestamps method creates created_at and updated_at TIMESTAMP equivalent columns
 
         });

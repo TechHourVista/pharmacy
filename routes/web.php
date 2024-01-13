@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FournisseurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::view('/' , 'pharmacy.home');
+
+
+Route::controller(FournisseurController::class)->group(function(){
+    Route::get('/fournisseurs' , 'all_fournisseurs');
+    Route::post('/createfournisseur' , 'create_fournisserurs');
 });
