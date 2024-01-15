@@ -63,16 +63,19 @@ class FournisseurController extends Controller
 
 
     public function drop_fournisseurs(Request $request){
-
+        $request->validate([
+            "list_fournisseurs"=>"required|array"
+        ]);
+        $xss_protecd = strip_tags($request->input('list_fournisseurs')[0]);
         $list_fournisseurs = array_map(function ($item){
-            return (int)$item;
-        } , $request->input('list_fournisseurs'));
+            return intval($item);
+        } , explode(",",$xss_protecd));
 
-        Fournisseur::destroy($list_fournisseurs);
+        #Fournisseur::destroy($list_fournisseurs);
 
         return response()->json([
             'status'=>true,
-            'message'=>'the record deleted'
+            'message'=>$list_fournisseurs,
         ]);
     }
 }

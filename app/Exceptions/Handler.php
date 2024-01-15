@@ -5,7 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Illuminate\Validation\ValidationException;
-
+use Illuminate\Database\QueryException;
 class Handler extends ExceptionHandler
 {
     /**
@@ -30,14 +30,28 @@ class Handler extends ExceptionHandler
     }
 
 
-    public function render($request, Throwable $e)
+    public function render($request, Throwable $th)
     {
-        if($e instanceof ValidationException){
+        if($th instanceof ValidationException){
             return response()->json([
                 'status'=>false,
-                'error'=>'the forme not validted 🛑',
+                'errorMessage'=>$th->getMessage(),
             ]);
         }
+        else if ($th instanceof QueryException) {
+            return response()->json([
+                'status'=>false,
+                'errorMessage'=>explode(":" ,$th->getMessage())[2],
+            ]);
+        } 
+        else {
+            return response()->json([
+                'status'=>false,
+                'errorMessage'=>$th->getMessage(),
+                'errorClass'=>get_class($th)
+            ]);
+        }
+        
         
     }
 }
