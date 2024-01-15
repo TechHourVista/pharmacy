@@ -10,7 +10,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pharmacies' , function(Blueprint $table){
-            $table->id();
+            $table->id()->startingValue(999);
             $table->string('nom_pharmacie');
             $table->string('tel_pharmacie');
             $table->string('adresse_pharmacie');
@@ -18,7 +18,7 @@ return new class extends Migration
         });
 
         Schema::create('pharmice_changes_produits' , function (Blueprint $table){
-            $table->id();
+            $table->id()->startingValue(999);
             $table->foreignId('change_produit_id')->constrained()->cascadeOnDelete();
             $table->foreignId('pharmacie_id')->constrained()->cascadeOnDelete();
         });
