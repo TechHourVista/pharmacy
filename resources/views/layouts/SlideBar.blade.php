@@ -18,7 +18,7 @@
     </div>
 
     <ul class="ul-list ul-list-b-bottom" >
-        <a href="/dashboard">
+        <a href="/">
              <li class='li-list select links-slide'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M12.4444 0H1.55556C0.7 0 0 0.7 0 1.55556V12.4444C0 13.3 0.7 14 1.55556 14H12.4444C13.3 14 14 13.3 14 12.4444V1.55556C14 0.7 13.3 0 12.4444 0ZM1.55556 12.4444V1.55556H6.22222V12.4444H1.55556ZM12.4444 12.4444H7.77778V7H12.4444V12.4444ZM12.4444 5.44444H7.77778V1.55556H12.4444V5.44444Z" fill="white"/>
@@ -34,7 +34,7 @@
                     <path d="M9.2 8H5V9.4H9.2V8Z" fill="white"/>
                     <path d="M6.40002 6.59999L6.40002 10.8L7.80002 10.8L7.80002 6.59999L6.40002 6.59999Z" fill="white"/>
                 </svg>
-                <a href="">Inventory</a>
+                <a href="/inventory">Inventory</a>
                 <img src="{{asset('images/vector.png')}}" alt="" srcset="" class='vector' id='vector1'>
             </li>
         
