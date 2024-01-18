@@ -11,10 +11,13 @@ btn1.addEventListener('click',function(){
         vector1.style.transform=' rotate(0deg)'
         condition1 = 'hide'
 
+        
     }else if (condition1 === 'hide'){
         ul1.style.display='block'
         condition1 = 'show'
         vector1.style.transform=' rotate(180deg)'
+ 
+      
     }
 }) 
 
@@ -60,7 +63,7 @@ btn2.addEventListener('click',function(){
 
 let btnHideSlide = document.querySelector('.btn-hide-slide')
 let vector = document.getElementById('btn-hide-slide')
-let header = document.querySelector('header')
+let header = document.querySelector('section')
 let condition = 'show'
 
 btnHideSlide.addEventListener('click',function(){
@@ -69,11 +72,23 @@ btnHideSlide.addEventListener('click',function(){
         vector.style.transform=' rotate(-90deg)'
         btnHideSlide.style.left='0px'
         condition= 'hide'
+        document.querySelector('body').style.gridTemplateAreas=` "header header header header"
+        "main main main  main"
+        "main main main  main"
+        "main main main  main"
+        "main main main  main"
+        `
 
     }else if (condition === 'hide'){
         header.style.display='block'
         condition = 'show'
         btnHideSlide.style.left='256px'
         vector.style.transform=' rotate(90deg)'
+        document.querySelector('body').style.gridTemplateAreas=` "header header header header"
+        "side main main  main"
+        "side main main  main"
+        "side main main  main"
+        "side main main  main"
+        `
     }
 }) 

@@ -49,3 +49,4 @@
 
 
 
+    <script src="{{asset('js/main-navbar.js')}}"></script>
