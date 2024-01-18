@@ -1,11 +1,29 @@
-nav{
+header{
     width: 100%;
-    height: 60px;
+    height: 8vh;
     background: #F7FAFD;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
-    
+}
+
+.container-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 256px;
+    height: 8vh;
+    flex-shrink: 0;
+    background: #1D242E;
+    padding-left: 0%;
+}
+.title-logo{
+    color: #FFF;
+    font-family: "Poppins";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
 }
 
 .container-search{
@@ -39,7 +57,7 @@ nav{
     background-color: #e3ebf300;
 }
 .container-time{
-    padding-bottom: 20pw;
+    padding-right: 10px;
 }
 .div-welcome{
     display: flex;

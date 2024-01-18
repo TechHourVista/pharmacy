@@ -1,11 +1,8 @@
 
 
-<header>
+<section id='section'>
 
-    <div class="container-logo">
-        <img src="{{ asset('images/logo.png')}}" alt="">
-        <h2 class='title-logo'>Pharma One</h2>
-    </div>
+   
     
     <div class="container-profile">
         <img src="{{asset('images/img-profile.png')}}" alt="" style='width: 42px; height: 42px;'>
@@ -21,7 +18,7 @@
     </div>
 
     <ul class="ul-list ul-list-b-bottom" >
-        <a href="/">
+        <a href="/dashboard">
              <li class='li-list select links-slide'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M12.4444 0H1.55556C0.7 0 0 0.7 0 1.55556V12.4444C0 13.3 0.7 14 1.55556 14H12.4444C13.3 14 14 13.3 14 12.4444V1.55556C14 0.7 13.3 0 12.4444 0ZM1.55556 12.4444V1.55556H6.22222V12.4444H1.55556ZM12.4444 12.4444H7.77778V7H12.4444V12.4444ZM12.4444 5.44444H7.77778V1.55556H12.4444V5.44444Z" fill="white"/>
@@ -30,18 +27,16 @@
             </li>
         </a>
      
-       
+        
             <li class='li-list' id='btn1'  >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M12.6 0H1.4C0.7 0 0 0.63 0 1.4V3.507C0 4.011 0.301 4.445 0.7 4.69V12.6C0.7 13.37 1.47 14 2.1 14H11.9C12.53 14 13.3 13.37 13.3 12.6V4.69C13.699 4.445 14 4.011 14 3.507V1.4C14 0.63 13.3 0 12.6 0ZM11.9 12.6H2.1V4.9H11.9V12.6ZM12.6 3.5H1.4V1.4H12.6V3.5Z" fill="white"/>
                     <path d="M9.2 8H5V9.4H9.2V8Z" fill="white"/>
                     <path d="M6.40002 6.59999L6.40002 10.8L7.80002 10.8L7.80002 6.59999L6.40002 6.59999Z" fill="white"/>
                 </svg>
-                <a href="/inventory">Inventory</a>
+                <a href="">Inventory</a>
                 <img src="{{asset('images/vector.png')}}" alt="" srcset="" class='vector' id='vector1'>
             </li>
-    
-          
         
       
       <ul class='ul-bg-color ul_1' id='ul_1'>
@@ -122,7 +117,7 @@
 
    
 
-</header>
+</section>
  <button class='btn-hide-slide'>
         <img src="{{asset('images/vector.png')}}" alt="" srcset="" id='btn-hide-slide'>
 </button>
