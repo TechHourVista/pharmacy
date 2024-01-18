@@ -18,6 +18,11 @@ yarn-error.log
 /.idea
 /.vscode
 
+<<<<<<< HEAD
 *
 
 
+=======
+*.sqlite
+*.py
+>>>>>>> 30cb8e24dc48e93b7c23025dd8aabdada2015bb3
