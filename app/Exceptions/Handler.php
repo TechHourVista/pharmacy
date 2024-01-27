@@ -4,54 +4,62 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Database\QueryException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+// use Illuminate\Validation\ValidationException;
+// use Illuminate\Database\QueryException;
+// class Handler extends ExceptionHandler
+
 class Handler extends ExceptionHandler
 {
-    /**
-     * The list of the inputs that are never flashed to the session on validation exceptions.
-     *
-     * @var array<int, string>
-     */
+
+    protected $dontReport = [
+        //
+    ];
+
     protected $dontFlash = [
-        'current_password',
         'password',
         'password_confirmation',
     ];
 
-    /**
-     * Register the exception handling callbacks for the application.
-     */
-    public function register(): void
+
+    public function report(Throwable $exception)
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        parent::report($exception);
     }
 
 
-    public function render($request, Throwable $th)
+    public function render($request, Throwable $exception)
     {
-        if($th instanceof ValidationException){
-            return response()->json([
-                'status'=>false,
-                'errorMessage'=>$th->getMessage(),
-            ]);
-        }
-        else if ($th instanceof QueryException) {
-            return response()->json([
-                'status'=>false,
-                'errorMessage'=>explode(":" ,$th->getMessage())[2],
-            ]);
-        } 
-        else {
-            return response()->json([
-                'status'=>false,
-                'errorMessage'=>$th->getMessage(),
-                'errorClass'=>get_class($th)
-            ]);
+        if ($exception instanceof NotFoundHttpException) {
+            // $statusCode = $exception->getStatusCode();
+            // return response()->view('errors.404', compact("exception"), $exception->getStatusCode());
+            return back()->withInput();
         }
         
-        
+        else{
+
+            return response()->json([
+                'status'=>false,
+                'errorMessage'=>$exception->getMessage(),
+                'errorClass'=>get_class($exception)
+            ]);
+
+        }
+        return parent::render($request, $exception);
     }
 }
+
+
+
+
+
+
+
+
+//! docs
+// Sometimes you may wish to redirect the user to their previous location,
+//  such as when a submitted form is invalid. 
+// You may do so by using the global back helper function. 
+// Since this feature utilizes the session, 
+// make sure the route calling the back function is using the web middleware group or
+//  has all of the session middleware applied: back()->withInput()

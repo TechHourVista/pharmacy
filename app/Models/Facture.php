@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class Facture extends Model
 {
@@ -21,6 +22,20 @@ class Facture extends Model
  
     public function reglement(): HasOne
     {
-        return $this->hasOne(REGLEMENT_fACTURE::class);
+        return $this->hasOne(Reglement_facture::class);
     }
+
+    // public function reglement_type(): HasOneThrough 
+    // {
+    //     return $this->hasOneThrough()
+    // }
+}
+
+
+class Bl_Avoire extends Model {
+    protected $fillable = [
+
+    ];
+
+    protected $table = "bl_avoires";
 }

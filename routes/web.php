@@ -1,12 +1,10 @@
 <?php
 
-
-
+use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\ReportsController;
-use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\FournisseurController;
+use App\Http\Controllers\BoneLiversionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,43 +17,31 @@ use App\Http\Controllers\ConfigController;
 */
 
 
-
 Route::controller(DashController::class)->group(function(){
-    Route::get('','dash_fun');
+    // 
+    Route::get('' , "dashboard")->name("dashboard");
 });
 
-Route::controller(InventoryController::class)->group(function(){
-    Route::get('inventory','inventory_fun');
+Route::controller(FournisseurController::class)->prefix("fournisseur")->group(function(){
+    // 
+    Route::get('/fournisseurs' , 'list_fournisseurs')->name("fournisseurs");
+
+    Route::get("/ajoute" , function(){return view("pages.fournisseurs.fournisseurajoute");})->name("fourni_ajout");
+    Route::post('/create-fournisseur' , 'create_fournisserurs');
+    Route::delete('/drop-fournisseurs' , 'drop_fournisseurs');
 });
 
-Route::controller(InventoryController::class)->group(function(){
-    Route::get('medicines','medicines_fun');
+
+Route::controller(BoneLiversionController::class)->prefix("bon")->group(function(){
+    Route::get('/bons' , 'list_bons')->name("show_bons_url");
+    Route::get("/bon-form" , 'get_bon_form')->name("BonForm");
+
+    Route::get("/bon-search-product" , 'search_product');
+    Route::get("/bon-product-detail" , 'detail_product');
+
+
 });
 
 
-Route::controller(InventoryController::class)->group(function(){
-    Route::get('medicines/detail','medicines_detail_fun');
-});
 
-Route::controller(InventoryController::class)->group(function(){
-    Route::get('medicines/groupe','medicines_groupe_fun');
-});
-
-Route::controller(InventoryController::class)->group(function(){
-    Route::get('medicines/groupe/detail','medicines_groupe_detail_fun');
-});
-
-Route::controller(ReportsController::class)->group(function(){
-    Route::get('report','report_fun');
-});
-
-Route::controller(ReportsController::class)->group(function(){
-    Route::get('report/sales','report_sales_fun');
-});
-Route::controller(ReportsController::class)->group(function(){
-    Route::get('report/payments','report_payments_fun');
-});
-
-Route::controller(ConfigController::class)->group(function(){
-    Route::get('configuration','config_fun');
-});
+// errors

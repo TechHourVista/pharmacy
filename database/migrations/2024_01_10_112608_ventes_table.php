@@ -30,6 +30,9 @@ return new class extends Migration
             $table->foreignId('vente_id')->constrained()->cascadeOnDelete();
             $table->foreignId('detail_BLA_id')->constrained()->cascadeOnDelete();
         });
+
+        // retrun sur vente table .(venten_retrun) or add is_retrun in vente table
+        // 
     }
 
 

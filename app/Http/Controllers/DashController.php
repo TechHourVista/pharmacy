@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DashController extends Controller
 {
-    public function dash_fun(){
-        return view('Components/dashboard');
+    public function dashboard(){
+        return view('pages.dashboard.dashboard');
     }
 }

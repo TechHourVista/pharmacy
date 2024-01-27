@@ -23,20 +23,23 @@ use App\Http\Controllers\FactureController;
 // });
 
 
-Route::controller(FournisseurController::class)->prefix('fournisseur')->group(function(){
-    Route::get('/fournisseurs' , 'list_fournisseurs');
-    Route::post('/createfournisseur' , 'create_fournisserurs');
-    Route::post('/dropfournisseurs' , 'drop_fournisseurs');
-});
+// Route::controller(FournisseurController::class)->prefix('fournisseur')->group(function(){
+//     Route::get('/fournisseurs' , 'list_fournisseurs');
+//     Route::post('/createfournisseur' , 'create_fournisserurs');
+//     Route::delete('/dropfournisseurs' , 'drop_fournisseurs');
+// });
 
 
 
-Route::controller(FactureController::class)->prefix('facture')->group(function(){
-    Route::get('/typereglement' , 'get_types_reglement');
-    Route::post('/createtypereglement' , 'create_types_reglement');
-    Route::delete('/droptypereglement' , 'drop_types_reglement');
+// Route::controller(FactureController::class)->prefix('facture')->group(function(){
+//     Route::get('/typereglement' , 'get_types_reglement')->name("get");
+//     Route::post('/createtypereglement' , 'create_types_reglement');
+//     Route::delete('/droptypereglement' , 'drop_types_reglement');
 
-    Route::get('/listfactures' , 'get_list_factures') ;
-    Route::post('/createfactures' , 'create_factures') ;
-    Route::post('/dropfactures' , 'drop_factures') ;
-});
+//     Route::get('/listfactures' , 'get_list_factures') ;
+//     Route::get('/showfacture' , 'show_facture') ;
+//     Route::post('/createfactures' , 'create_factures') ;
+//     Route::delete('/dropfactures' , 'drop_factures') ;
+
+//     Route::post("/createBlAvoire" , "create_bl_avoire");
+// });
